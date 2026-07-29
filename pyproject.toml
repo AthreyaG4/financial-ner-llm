@@ -9,13 +9,9 @@ dependencies = [
     "datasets<4.0.0",
     "dotenv>=0.9.9",
     "matplotlib>=3.11.1",
-    "peft>=0.20.0",
     "sagemaker>=3.17.0",
     "seaborn>=0.13.2",
-    "torch>=2.13.0",
     "tqdm>=4.69.0",
-    "transformers>=5.14.1",
-    "trl>=0.29.1",
 ]
 
 [dependency-groups]

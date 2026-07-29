@@ -4,3 +4,5 @@ accelerate
 wandb
 peft
 tqdm
+transformers
+datasets
