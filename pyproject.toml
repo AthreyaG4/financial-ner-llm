@@ -9,6 +9,7 @@ dependencies = [
     "datasets<4.0.0",
     "dotenv>=0.9.9",
     "matplotlib>=3.11.1",
+    "pandas>=2.3.3",
     "sagemaker>=3.17.0",
     "seaborn>=0.13.2",
     "tqdm>=4.69.0",
@@ -18,4 +19,8 @@ dependencies = [
 dev = [
     "awscli>=1.45.57",
     "ipykernel>=7.3.0",
+    "ruff>=0.16.0",
 ]
+
+[tool.ruff]
+target-version = "py311"
