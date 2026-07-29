@@ -182,6 +182,8 @@ step_eval = ProcessingStep(
     name="EvaluationStep",
     step_args=eval_processor_args,
     property_files=[evaluation_report],
+    depends_on=[step_train],
+    cache_config=cache_config,
 )
 
 model_metrics = ModelMetrics(
