@@ -134,7 +134,7 @@ def compute_entity_f1(model, val_data, batch_size=16, max_new_tokens=2048):
     return metrics, examples
 
 
-metrics, examples = compute_entity_f1(model, val_data, batch_size=16)
+metrics, examples = compute_entity_f1(model, val_data, batch_size=8)
 evaluation_output_path = os.path.join(
     "/opt/ml/processing/evaluation", "evaluation.json"
 )

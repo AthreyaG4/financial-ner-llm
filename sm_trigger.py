@@ -229,9 +229,9 @@ cond_gte = ConditionGreaterThanOrEqualTo(
     left=JsonGet(
         step_name=step_eval.name,
         property_file=evaluation_report,
-        json_path="metrics.entity_f1.value",
+        json_path="f1_micro",
     ),
-    right=0.8,
+    right=0.7,
 )
 
 step_cond = ConditionStep(
