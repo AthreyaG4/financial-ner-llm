@@ -115,7 +115,6 @@ trainer = ModelTrainer(
     compute=Compute(
         instance_type=training_instance_type,
         instance_count=training_instance_count,
-        volume_size_in_gb=300,
     ),
     stopping_condition=StoppingCondition(max_runtime_in_seconds=36000),
     sagemaker_session=pipeline_session,
