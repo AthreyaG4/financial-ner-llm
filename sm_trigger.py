@@ -37,11 +37,11 @@ role = "arn:aws:iam::186189159492:role/SageMakerExecutionRole-Financial-NER-LLM"
 cache_config = CacheConfig(enable_caching=True, expire_after="30d")
 
 training_instance_type = ParameterString(
-    name="TrainingInstanceType", default_value="ml.g5.2xlarge"
+    name="TrainingInstanceType", default_value="ml.g5.xlarge"
 )
 training_instance_count = ParameterInteger(name="InstanceCount", default_value=1)
 evaluation_instance_type = ParameterString(
-    name="EvaluationInstanceType", default_value="ml.g5.2xlarge"
+    name="EvaluationInstanceType", default_value="ml.g5.xlarge"
 )
 evaluation_instance_count = ParameterInteger(
     name="EvaluationInstanceCount", default_value=1
