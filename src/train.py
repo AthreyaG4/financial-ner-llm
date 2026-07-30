@@ -373,7 +373,7 @@ trainer.add_callback(
         tokenizer,
         eval_subset,
         num_samples=600,
-        batch_size=16,
+        batch_size=8,
         max_new_tokens=2048,
     )
 )
