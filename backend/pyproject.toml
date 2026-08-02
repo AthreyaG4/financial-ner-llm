@@ -19,3 +19,8 @@ dev = [
 
 [tool.pytest.ini_options]
 pythonpath = ["."]
+
+[tool.ruff.lint]
+# B008: Depends()/File() in argument defaults is the correct FastAPI pattern,
+# not a bug - FastAPI relies on that call-time evaluation for its dependency graph.
+ignore = ["B008"]

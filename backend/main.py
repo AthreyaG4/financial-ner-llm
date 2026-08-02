@@ -1,6 +1,7 @@
-from db import init_db
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from db import init_db
 from routes.extractions import router as extractions_router
 from routes.health import router as health_router
 

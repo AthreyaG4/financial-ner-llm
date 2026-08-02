@@ -2,9 +2,10 @@ import enum
 import uuid
 from datetime import UTC, datetime
 
-from db import Base
 from sqlalchemy import JSON, Column, DateTime, String, Text
 from sqlalchemy import Enum as SAEnum
+
+from db import Base
 
 
 class ExtractionStatus(str, enum.Enum):

@@ -1,10 +1,11 @@
 from datetime import UTC, datetime
 
-from db import get_db
 from fastapi import APIRouter, BackgroundTasks, Depends, File, HTTPException, UploadFile
+from sqlalchemy.orm import Session
+
+from db import get_db
 from models import Extraction, ExtractionStatus
 from schemas import ExtractionRead
-from sqlalchemy.orm import Session
 from utils.placeholders import simulate_llamaparse, simulate_vllm_extraction
 
 router = APIRouter(prefix="/extractions", tags=["extractions"])

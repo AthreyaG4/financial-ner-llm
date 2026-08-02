@@ -21,7 +21,7 @@ def simulate_llamaparse(extraction_id: str) -> None:
         extraction.parsed_text = DUMMY_DOCUMENT_TEXT
         extraction.parsed_at = datetime.now(UTC)
         db.commit()
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - any failure here should mark the row failed
         db.rollback()
         extraction = db.get(Extraction, extraction_id)
         if extraction is not None:
@@ -44,7 +44,7 @@ def simulate_vllm_extraction(extraction_id: str) -> None:
         extraction.entities = DUMMY_ENTITIES
         extraction.extracted_at = datetime.now(UTC)
         db.commit()
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001 - any failure here should mark the row failed
         db.rollback()
         extraction = db.get(Extraction, extraction_id)
         if extraction is not None:

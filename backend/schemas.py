@@ -1,8 +1,9 @@
 from datetime import datetime
 from typing import Literal
 
-from models import ExtractionStatus
 from pydantic import BaseModel, computed_field
+
+from models import ExtractionStatus
 
 EntityType = Literal["monetary", "percentage", "date", "duration", "other_number"]
 
