@@ -6,7 +6,14 @@ dist/
 wheels/
 *.egg-info
 .ruff_cache
+.pytest_cache/
 
 # Virtual environments
 .venv
 .env
+
+# Node
+node_modules/
+
+# Local notes
+PROJECT_LOG.md

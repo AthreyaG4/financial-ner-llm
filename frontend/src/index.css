@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", monospace;
+
+  --color-surface: oklch(0.17 0.014 258);
+  --color-surface-2: oklch(0.2 0.013 258);
+  --color-surface-3: oklch(0.23 0.014 258);
+
+  --color-ink: oklch(0.93 0.006 258);
+  --color-ink-muted: oklch(0.55 0.01 258);
+  --color-ink-faint: oklch(0.45 0.01 258);
+
+  --color-accent: oklch(0.62 0.16 252);
+  --color-accent-light: oklch(0.72 0.14 252);
+  --color-accent-ink: oklch(0.99 0.005 258);
+
+  --color-danger: oklch(0.62 0.15 25);
+  --color-danger-border: oklch(0.6 0.14 30 / 0.35);
+  --color-danger-bg: oklch(0.24 0.02 30 / 0.5);
+
+  --animate-spin-fast: spin-fast 0.8s linear infinite;
+  --animate-pulse-glow: pulse-glow 1.6s ease-in-out infinite;
+}
+
+@keyframes spin-fast {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+body {
+  background: var(--color-surface);
+}
+a {
+  color: oklch(0.75 0.14 230);
+}
+a:hover {
+  color: oklch(0.82 0.12 230);
+}
+::selection {
+  background: oklch(0.5 0.1 250 / 0.4);
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: oklch(0.32 0.014 258);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
