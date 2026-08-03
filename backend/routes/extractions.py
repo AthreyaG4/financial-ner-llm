@@ -8,7 +8,7 @@ from models import Extraction, ExtractionStatus
 from schemas import ExtractionRead
 from utils.placeholders import simulate_llamaparse, simulate_vllm_extraction
 
-router = APIRouter(prefix="/extractions", tags=["extractions"])
+router = APIRouter(prefix="/api/extractions", tags=["extractions"])
 
 NOT_READY_FOR_EXTRACT = {
     ExtractionStatus.PARSING,

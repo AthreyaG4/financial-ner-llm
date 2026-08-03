@@ -1,4 +1,7 @@
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+// Relative by default - same-origin via Ingress path routing (/api -> backend, / -> frontend),
+// so no CORS is needed. Override via VITE_API_BASE_URL for local dev, where the Vite dev
+// server and backend run on different ports (different origins).
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 export class ApiError extends Error {
   constructor(message, status, body) {
