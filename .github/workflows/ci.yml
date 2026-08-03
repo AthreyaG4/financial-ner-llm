@@ -109,3 +109,33 @@ jobs:
             -t "$REGISTRY/$REPOSITORY:$IMAGE_TAG" -t "$REGISTRY/$REPOSITORY:latest" .
           docker push "$REGISTRY/$REPOSITORY:$IMAGE_TAG"
           docker push "$REGISTRY/$REPOSITORY:latest"
+
+  update-config-repo:
+    needs: build-and-push
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Config Repo
+        uses: actions/checkout@v4
+        with:
+          repository: AthreyaG4/financial-ner-llm-config
+          token: ${{ secrets.CONFIG_REPO_PAT }}
+
+      - name: Update image tags to the newly-pushed SHA
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+        run: |
+          sed -i "s|financial-ner-llm-backend:.*|financial-ner-llm-backend:${IMAGE_TAG}|" backend/deployment.yaml
+          sed -i "s|financial-ner-llm-frontend:.*|financial-ner-llm-frontend:${IMAGE_TAG}|" frontend/deployment.yaml
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add backend/deployment.yaml frontend/deployment.yaml
+          if git diff --cached --quiet; then
+            echo "No image tag changes to commit"
+          else
+            git commit -m "Update image tags to ${{ github.sha }}"
+            git push
+          fi
